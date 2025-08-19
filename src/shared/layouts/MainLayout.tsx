@@ -12,7 +12,7 @@ const MainLayout = ({
   children?: ReactNode;
 }) => {
   return (
-    <>
+    <div className="w-full relative">
      {/* Navbar */}
       <Navbar />
       <div
@@ -24,14 +24,14 @@ const MainLayout = ({
        
         {/* main content area */}
         <div className="h-fit flex-1">
-          <div className="mt-[75px] flex w-full justify-center px-8 sm:px-12 md:px-16 lg:px-10 xl:px-16">
+          <div className="mt-[75px] flex w-full justify-center px-8 sm:px-12 md:px-8 lg:px-8 xl:px-8">
             {children || <Outlet />}
           </div>
         </div>
       </div>
       {/* Footer */}
       <Footer />
-    </>
+    </div>
   );
 };
 

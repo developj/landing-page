@@ -39,7 +39,7 @@ export default function ProductGrid({
   onImageIndexChange,
 }: ProductGridProps) {
   return (
-    <section className={classNameMerge("mx-auto w-full max-w-7xl px-4 py-10", className)}>
+    <section className={classNameMerge("w-full max-w-[1580px] px-4 py-10 mx-auto", className)}>
       {(title || subtitle) && (
         <header className="mb-8 text-center">
           {title && (
@@ -57,7 +57,7 @@ export default function ProductGrid({
 
       <div
         className={classNameMerge(
-          "grid grid-cols-4 xs:grid-cols-1 gap-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4",
+          "grid grid-cols-4 xs:grid-cols-2 gap-3 lg:gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4",
           "transition-all duration-300 ease-in-out",
           toGridCols(cols),
           gridClassName

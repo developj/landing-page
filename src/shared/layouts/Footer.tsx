@@ -22,9 +22,9 @@ export default function Footer() {
     <footer className="w-full bg-[#161616] text-gray-300">
       <div className="mx-auto max-w-7xl px-4 py-10 md:py-14">
         {/* GRID: Left = brand + company, Middle = contact/AS, Right = policy + socials */}
-        <div className="grid grid-cols-1 gap-10 md:grid-cols-12">
+        <div className="grid grid-cols-1 xs:gap-4 md:grid-cols-12">
           {/* Left */}
-          <section className="md:col-span-6">
+          <section className="md:col-span-7">
             <h3 className="text-2xl font-extrabold tracking-wide text-[var(--brand)]">
               LANDAS
             </h3>
@@ -37,7 +37,7 @@ export default function Footer() {
           </section>
 
           {/* Middle */}
-          <section className="md:col-span-4">
+          <section className="md:col-span-3">
             <p className="text-[15px] text-lg font-semibold text-gray-200">
               대표 번호 및 AS 문의
             </p>

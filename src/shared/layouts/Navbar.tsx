@@ -32,12 +32,12 @@ export default function Navbar() {
         {/* BAR */}
         <div className="flex h-14 items-center justify-between">
           {/* Left: Brand */}
-          <a href="/" className="text-2xl font-extrabold tracking-wide text-[var(--brand)]">
+          <a href="/" className="text-2xl font-extrabold tracking-wide text-[var(--brand)] mr-3">
             LANDAS
           </a>
 
           {/* Center: links (desktop) */}
-          <ul className="hidden flex-1 items-center justify-center gap-8 md:flex">
+          <ul className="hidden flex-1 items-center justify-evenly gap-8 md:flex">
             {LINKS.map((l) => (
               <li key={l.label}>
                 <a
@@ -54,16 +54,16 @@ export default function Navbar() {
           <div className="flex items-center gap-4">
             {/* Desktop icons */}
             <div className="hidden items-center gap-4 md:flex">
-              <a href="#" aria-label="Cart" className="hover:text-[var(--brand)]">
+              <a href="/login" aria-label="Cart" className="hover:text-[var(--brand)]">
                 <CartIcon />
               </a>
-              <a href="#" aria-label="Account" className="hover:text-[var(--brand)]">
+              <a href="/login" aria-label="Account" className="hover:text-[var(--brand)]">
                 <UserIcon />
               </a>
               <button aria-label="Search" className="hover:text-[var(--brand)]">
                 <SearchIcon />
               </button>
-              <a href="#" className="text-sm">로그아웃</a>
+              <a href="/login" className="text-sm">로그아웃</a>
             </div>
 
             {/* Mobile icons */}
@@ -112,11 +112,11 @@ export default function Navbar() {
 
             <div className="mt-2 flex items-center justify-between px-1 pb-4">
               <div className="flex items-center gap-4">
-                <a href="#" className="hover:text-[var(--brand)]" aria-label="Cart"><CartIcon /></a>
-                <a href="#" className="hover:text-[var(--brand)]" aria-label="Account"><UserIcon /></a>
+                <a href="/login" className="hover:text-[var(--brand)]" aria-label="Cart"><CartIcon /></a>
+                <a href="/login" className="hover:text-[var(--brand)]" aria-label="Account"><UserIcon /></a>
                 <button className="hover:text-[var(--brand)]" aria-label="Search"><SearchIcon /></button>
               </div>
-              <a href="#" className="text-sm">로그아웃</a>
+              <a href="/login" className="text-sm">로그아웃</a>
             </div>
           </div>
         </div>

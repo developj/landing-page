@@ -1,6 +1,5 @@
 import { Card } from "../../../../../shared/components/molecules/Cards/Card";
 import { ImageGallery } from "../../molecules/product/ImageGallery";
-import { ColorSwatchList } from "../../molecules/product/ColorSwatchList";
 import { TitleBlock } from "../../molecules/product/TitleBlock";
 import { PriceRow } from "../../molecules/product/PriceRow";
 
@@ -10,7 +9,7 @@ export interface ProductCardProps {
   id: string;
   title: string;
   subtitle?: string;
-  images: string[];
+  images: { url: string; dotColor: string }[];
   price: number;
   badge?: string;
   colors?: ProductColor[];
@@ -31,16 +30,13 @@ export function ProductCard({
   images,
   price,
   badge,
-  colors = [],
-  selectedColorIndex,
   href,
   imageIndex,
   defaultImageIndex = 0,
   onImageIndexChange,
-  onColorSelect,
 }: ProductCardProps) {
   return (
-    <Card className="p-2 sm:p-3 md:p-4 shadow-none ring-0 ring-white">
+    <Card className="p-2 sm:p-2 md:p-2 shadow-none ring-0 ring-white xs:flex xs:flex-col xs:items-center">
       <ImageGallery
         images={images}
         index={imageIndex}
@@ -48,12 +44,6 @@ export function ProductCard({
         onChange={onImageIndexChange}
         href={href ?? `#${id}`}
         title={title}
-      />
-
-      <ColorSwatchList
-        colors={colors}
-        selectedIndex={selectedColorIndex}
-        onSelect={onColorSelect}
       />
 
       <TitleBlock href={href ?? `#${id}`} title={title} subtitle={subtitle} />

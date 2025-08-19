@@ -3,9 +3,9 @@ import { AspectImage } from "../../atoms/product/AspectImage";
 import { Dot } from "../../atoms/product/Dot";
 
 export interface ImageGalleryProps {
-  images: string[];
-  index?: number;                 // controlled
-  defaultIndex?: number;          // uncontrolled initial
+  images: { url: string; dotColor: string }[];
+  index?: number; // controlled
+  defaultIndex?: number; // uncontrolled initial
   onChange?: (i: number) => void;
   href?: string;
   title: string;
@@ -29,7 +29,9 @@ export function ImageGallery({
     onChange?.(safe);
   };
 
-  const src = images[idx] ?? images[0] ?? "";
+  // Access the 'url' property from the selected image object
+  const selectedImage = images[idx];
+  const src = selectedImage ? selectedImage.url : images[0]?.url ?? "";
 
   return (
     <>
@@ -37,9 +39,16 @@ export function ImageGallery({
         <AspectImage src={src} alt={`${title} - ${idx + 1}`} />
       </a>
 
-      <div className="mt-2 flex flex-wrap gap-1.5" role="tablist" aria-label="상품 이미지 선택">
-        {images.map((_, i) => (
-          <Dot key={i} active={i === idx} onClick={() => setIdx(i)} label={`이미지 ${i + 1}`} />
+      <div className="mt-2 flex justify-between flex-wrap" role="tablist" aria-label="상품 이미지 선택">
+        {images.map((image, i) => (
+          <Dot
+            className="w-5 h-5 xs:w-2 xs:h-2 cursor-pointer"
+            key={i}
+            active={i === idx}
+            onClick={() => setIdx(i)}
+            label={`이미지 ${i + 1}`}
+            hex={image?.dotColor || "#fff" } 
+          />
         ))}
       </div>
     </>

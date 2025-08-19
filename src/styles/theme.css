@@ -1,5 +1,9 @@
+@import "tailwindcss";
+
 @theme {
-  --brand:       #ffb800; /* base */
+  --brand:       #ffc40b; /* base */
+  --brand-light: #ffedb3;
+  --brand-very-light: #fffcf3;
   --brand-500:   var(--brand);
   --brand-400:   #ffe399;
   --brand-300:   #ffeab2;
@@ -8,15 +12,28 @@
   --brand-50:    #fffbf2;
   --brand-600:   #e6a700;
   --brand-700:   #cc9600;
-
-
-  --text: #1a1a1a;
-  --muted: #6b7280;
+  --placeholder-text: #b2b2b2;
+  --text: #282828;
+  --muted: #999999;
+  --grey-text: #666666;
   --border: #e5e7eb;
   --bg: #f9fafb;
   --white: #ffffff;
-
+  --muted-outline: #d9d9d9;
+  --main-bg: #f8f6ee;
   --danger: #ef4444;
   --success: #10b981;
   --radius: 10px;
+  --tag-brown: #594504;
+
+  --input-bg-default: #fafafa;
+  --input-bg-error: #fdeeee;
+
+  --panel-gradient: linear-gradient(180deg, #f4f4f6 0%, #eaeaea 100%);
+  /* Helpful: start/end + solid fallback (mean color) */
+  --panel-gradient-start: #f4f4f6;
+  --panel-gradient-end:   #eaeaea;
+  --panel-gradient-solid: #efeef0; /* average of the two */
+  --panel-base: #ececec;
 }
+
