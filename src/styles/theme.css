@@ -1,0 +1,22 @@
+@theme {
+  --brand:       #ffb800; /* base */
+  --brand-500:   var(--brand);
+  --brand-400:   #ffe399;
+  --brand-300:   #ffeab2;
+  --brand-200:   #fff1cc;
+  --brand-100:   #fff8e6;
+  --brand-50:    #fffbf2;
+  --brand-600:   #e6a700;
+  --brand-700:   #cc9600;
+
+
+  --text: #1a1a1a;
+  --muted: #6b7280;
+  --border: #e5e7eb;
+  --bg: #f9fafb;
+  --white: #ffffff;
+
+  --danger: #ef4444;
+  --success: #10b981;
+  --radius: 10px;
+}
