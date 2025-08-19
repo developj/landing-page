@@ -6,5 +6,5 @@ export interface ShowcaseTextProps {
 }
 
 export const ShowcaseText: React.FC<ShowcaseTextProps> = ({ text, className }) => (
-  <p className={`text-center px-2 py-1 ${className ?? ""}`}>{text}</p>
+  <p className={`px-2 py-1 ${className ?? ""}`}>{text}</p>
 );

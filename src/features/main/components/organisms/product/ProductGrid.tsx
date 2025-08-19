@@ -43,15 +43,13 @@ export default function ProductGrid({
       {(title || subtitle) && (
         <header className="mb-8 text-center">
           {title && (
-            <h2 className="text-lg font-extrabold tracking-tight text-[var(--text)] md:text-xl">
+            <h2 className="text-lg font-semibold tracking-tight text-[var(--text)] md:text-xl mb-3">
               {title}
             </h2>
           )}
           {subtitle && (
-            <p className="mt-2 text-sm text-[var(--muted)]">{subtitle}</p>
+            <p className="mt-2 text-base text-[var(--muted)]">{subtitle}</p>
           )}
-          {/* small yellow underline like in your mock */}
-          <div className="mx-auto mt-3 h-1 w-16 rounded-full bg-[var(--brand)]" />
         </header>
       )}
 
