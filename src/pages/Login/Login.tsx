@@ -14,8 +14,8 @@ export default function Login() {
   const onSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     const next: typeof errors = {};
-    if (!form.name) next.name = "Please enter your name.";
-    if (!form.password) next.password = "Please enter your password.";
+    if (!form.name) next.name = "아이디를 입력하지 않았습니다.";
+    if (!form.password) next.password = "비밀번호를 입력하지 않았습니다.";
     setErrors(next);
     if (Object.keys(next).length) return;
 
@@ -38,7 +38,7 @@ export default function Login() {
             <Input
               label="아이디"
               name="name"
-              placeholder="Enter your name"
+              placeholder="아이디를 입력해주세요."
               value={form.name}
               onChange={(e) => setForm((s) => ({ ...s, name: e.target.value }))}
               error={errors.name}
@@ -49,13 +49,13 @@ export default function Login() {
                 label="비밀번호"
                 type="password"
                 name="password"
-                placeholder="Enter your password"
+                placeholder="비밀번호를 입력해주세요."
                 value={form.password}
                 onChange={(e) =>
                   setForm((s) => ({ ...s, password: e.target.value }))
                 }
                 error={errors.password}
-                hint="8–16 characters, include uppercase, numbers, and special characters."
+                hint="8~16자, 대/소문자+숫자+특수문자 조합"
               />
             </div>
 

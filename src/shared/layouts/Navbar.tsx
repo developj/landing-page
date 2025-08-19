@@ -1,0 +1,126 @@
+import React from "react";
+import classNameMerge from "../utils/classNameMerge";
+import { CartIcon } from "../components/atoms/icons/CartIcon";
+import { UserIcon } from "../components/atoms/icons/UserIcon";
+import { SearchIcon } from "../components/atoms/icons/SearchIcon";
+import { CloseIcon } from "../components/atoms/icons/CloseIcon";
+import { MenuIcon } from "../components/atoms/icons/MenuIcon";
+
+const LINKS = [
+  { label: "SS", href: "#" },
+  { label: "FW", href: "#" },
+  { label: "PANTS", href: "#" },
+  { label: "T-Shirt", href: "#" },
+  { label: "SALE", href: "#" },
+  { label: "COLLECTION", href: "#" },
+  { label: "COMMUNITY", href: "#" },
+];
+
+export default function Navbar() {
+  const [open, setOpen] = React.useState(false);
+
+  // Lock scroll when mobile menu is open
+  React.useEffect(() => {
+    const prev = document.body.style.overflow;
+    document.body.style.overflow = open ? "hidden" : prev || "";
+    return () => { document.body.style.overflow = prev; };
+  }, [open]);
+
+  return (
+    <header className="sticky top-0 z-40 w-full bg-black text-white">
+      <nav className="mx-auto max-w-7xl px-4">
+        {/* BAR */}
+        <div className="flex h-14 items-center justify-between">
+          {/* Left: Brand */}
+          <a href="/" className="text-2xl font-extrabold tracking-wide text-[var(--brand)]">
+            LANDAS
+          </a>
+
+          {/* Center: links (desktop) */}
+          <ul className="hidden flex-1 items-center justify-center gap-8 md:flex">
+            {LINKS.map((l) => (
+              <li key={l.label}>
+                <a
+                  href={l.href}
+                  className="text-sm font-semibold uppercase tracking-wide hover:text-[var(--brand)]"
+                >
+                  {l.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+
+          {/* Right: icons */}
+          <div className="flex items-center gap-4">
+            {/* Desktop icons */}
+            <div className="hidden items-center gap-4 md:flex">
+              <a href="#" aria-label="Cart" className="hover:text-[var(--brand)]">
+                <CartIcon />
+              </a>
+              <a href="#" aria-label="Account" className="hover:text-[var(--brand)]">
+                <UserIcon />
+              </a>
+              <button aria-label="Search" className="hover:text-[var(--brand)]">
+                <SearchIcon />
+              </button>
+              <a href="#" className="text-sm">로그아웃</a>
+            </div>
+
+            {/* Mobile icons */}
+            <div className="flex items-center gap-4 md:hidden">
+              <a href="#" aria-label="Cart" className="hover:text-[var(--brand)]">
+                <CartIcon />
+              </a>
+              <button aria-label="Search" className="hover:text-[var(--brand)]">
+                <SearchIcon />
+              </button>
+              <button
+                className="hover:text-[var(--brand)]"
+                onClick={() => setOpen((s) => !s)}
+                aria-label="Toggle menu"
+                aria-expanded={open}
+                aria-controls="mobile-menu"
+              >
+                {open ? <CloseIcon /> : <MenuIcon />}
+              </button>
+            </div>
+          </div>
+        </div>
+
+        {/* MOBILE PANEL */}
+        <div
+          id="mobile-menu"
+          className={classNameMerge(
+            "md:hidden transition-[max-height] overflow-hidden",
+            open ? "max-h-[80vh]" : "max-h-0"
+          )}
+        >
+          <div className="border-t border-white/10 py-2">
+            <ul className="flex flex-col">
+              {LINKS.map((l) => (
+                <li key={l.label}>
+                  <a
+                    href={l.href}
+                    className="block px-1 py-3 text-base font-semibold uppercase tracking-wide hover:text-[var(--brand)]"
+                    onClick={() => setOpen(false)}
+                  >
+                    {l.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+
+            <div className="mt-2 flex items-center justify-between px-1 pb-4">
+              <div className="flex items-center gap-4">
+                <a href="#" className="hover:text-[var(--brand)]" aria-label="Cart"><CartIcon /></a>
+                <a href="#" className="hover:text-[var(--brand)]" aria-label="Account"><UserIcon /></a>
+                <button className="hover:text-[var(--brand)]" aria-label="Search"><SearchIcon /></button>
+              </div>
+              <a href="#" className="text-sm">로그아웃</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+  );
+}

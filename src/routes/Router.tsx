@@ -9,13 +9,13 @@ const Router = () => {
       <Routes>
         {/* auth layout */}
         <Route element={<AuthLayout />}>
-          <Route path={routes.default} element={<div className="text-red-300">default</div>} />
           <Route path={routes.login} element={<Login />} />
           <Route path={routes.signup} element={<div>signup</div>} />
         </Route>
   
         {/* main layout */}
         <Route element={<MainLayout />}>
+          <Route path={routes.default} element={<div className="text-red-300">default</div>} />
           <Route path={routes.main} element={<div>home</div>} />
         </Route>
   
