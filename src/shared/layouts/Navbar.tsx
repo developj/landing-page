@@ -1,10 +1,10 @@
 import React from "react";
 import classNameMerge from "../utils/classNameMerge";
-import { CartIcon } from "../components/atoms/icons/CartIcon";
-import { UserIcon } from "../components/atoms/icons/UserIcon";
-import { SearchIcon } from "../components/atoms/icons/SearchIcon";
-import { CloseIcon } from "../components/atoms/icons/CloseIcon";
-import { MenuIcon } from "../components/atoms/icons/MenuIcon";
+import { CartIcon } from "../../../public/assets/icons/icons/CartIcon";
+import { UserIcon } from "../../../public/assets/icons/icons/UserIcon";
+import { SearchIcon } from "../../../public/assets/icons/icons/SearchIcon";
+import { CloseIcon } from "../../../public/assets/icons/icons/CloseIcon";
+import { MenuIcon } from "../../../public/assets/icons/icons/MenuIcon";
 
 const LINKS = [
   { label: "SS", href: "#" },

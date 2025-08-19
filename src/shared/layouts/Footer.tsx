@@ -1,6 +1,6 @@
-import { InstagramIcon } from "../components/atoms/icons/InstagramIcon";
-import { FacebookIcon } from "../components/atoms/icons/FacebookIcon";
-import { YouTubeIcon } from "../components/atoms/icons/YouTubeIcon";
+import { InstagramIcon } from "../../../public/assets/icons/icons/InstagramIcon";
+import { FacebookIcon } from "../../../public/assets/icons/icons/FacebookIcon";
+import { YouTubeIcon } from "../../../public/assets/icons/icons/YouTubeIcon";
 
 const companyInfo = [
   "대표이사 : 장창진",
@@ -38,12 +38,12 @@ export default function Footer() {
 
           {/* Middle */}
           <section className="md:col-span-4">
-            <p className="text-[15px] font-semibold text-gray-200">
+            <p className="text-[15px] text-lg font-semibold text-gray-200">
               대표 번호 및 AS 문의
             </p>
             <a
               href="tel:16616244"
-              className="mt-2 block text-3xl font-extrabold tracking-wide text-white md:text-4xl"
+              className="mt-2 block font-extrabold tracking-wide text-white text-2xl"
             >
               1661-6244
             </a>
@@ -56,7 +56,7 @@ export default function Footer() {
           </section>
 
           {/* Right */}
-          <aside className="md:col-span-2 flex flex-col items-start gap-4 md:items-end">
+          <aside className="md:col-span-2 flex flex-col items-start gap-4 md:items-end text-[var(--grey-text)]">
             {/* Policy links */}
             <nav className="flex gap-6 text-sm">
               <a href="#" className="hover:text-white">
@@ -95,7 +95,7 @@ export default function Footer() {
         </div>
 
         {/* Copyright */}
-        <div className="mt-10 border-t border-white/10 pt-6 text-center text-xs text-gray-400 md:text-left">
+        <div className="pt-6 text-center text-xs text-[var(--grey-text)] md:text-left">
           Copyright © WWW.ldsb2bmall.com All rights reserved
         </div>
       </div>
