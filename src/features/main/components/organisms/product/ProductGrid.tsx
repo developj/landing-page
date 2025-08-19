@@ -57,19 +57,20 @@ export default function ProductGrid({
 
       <div
         className={classNameMerge(
-          "grid gap-6",
+          "grid grid-cols-4 xs:grid-cols-1 gap-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4",
+          "transition-all duration-300 ease-in-out",
           toGridCols(cols),
           gridClassName
         )}
       >
         {products.map((p) => (
           <ProductCard
-            key={p.id}
             {...p}
             onColorSelect={(idx) => onColorChange?.(p.id, idx)}
             onImageIndexChange={(idx) => onImageIndexChange?.(p.id, idx)}
           />
         ))}
+    
       </div>
     </section>
   );

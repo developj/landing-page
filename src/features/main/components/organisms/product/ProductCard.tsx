@@ -40,7 +40,7 @@ export function ProductCard({
   onColorSelect,
 }: ProductCardProps) {
   return (
-    <Card className="group overflow-hidden p-4">
+    <Card className="p-2 sm:p-3 md:p-4 shadow-none ring-0 ring-white">
       <ImageGallery
         images={images}
         index={imageIndex}

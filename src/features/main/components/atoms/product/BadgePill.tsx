@@ -8,8 +8,8 @@ export function BadgePill({
   return (
     <span
       className={classNameMerge(
-        "rounded-full border border-[var(--brand)] bg-[color:rgba(255,184,0,0.1)]",
-        "px-2.5 py-1 text-xs font-semibold text-[var(--text)]",
+        "rounded-lg border border-[var(--brand-light)] bg-[var(--brand-very-light)]",
+        "px-2.5 py-1 text-xs font-semibold text-[var(--tag-brown)]",
         className
       )}
     >

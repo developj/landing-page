@@ -24,7 +24,7 @@ const MainLayout = ({
        
         {/* main content area */}
         <div className="h-fit flex-1">
-          <div className="mt-[75px] flex w-full justify-center px-[17.3%]">
+          <div className="mt-[75px] flex w-full justify-center px-8 sm:px-12 md:px-16 lg:px-10 xl:px-16">
             {children || <Outlet />}
           </div>
         </div>

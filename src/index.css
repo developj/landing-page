@@ -9,7 +9,7 @@
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  background-color: #fff;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -20,6 +20,8 @@
 
 @theme {
   --brand:       #ffc40b; /* base */
+  --brand-light: #ffedb3;
+  --brand-very-light: #fffcf3;
   --brand-500:   var(--brand);
   --brand-400:   #ffe399;
   --brand-300:   #ffeab2;
@@ -40,6 +42,7 @@
   --danger: #ef4444;
   --success: #10b981;
   --radius: 10px;
+  --tag-brown: #594504;
 
   --input-bg-default: #fafafa;
   --input-bg-error: #fdeeee;
