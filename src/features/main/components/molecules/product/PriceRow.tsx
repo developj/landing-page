@@ -1,5 +1,5 @@
-import { BadgePill } from "../atoms/product/BadgePill";
-import { Price } from "../atoms/product/Price";
+import { BadgePill } from "../../atoms/product/BadgePill";
+import { Price } from "../../atoms/product/Price";
 
 export function PriceRow({ badge, price }: { badge?: string; price: number }) {
   return (
