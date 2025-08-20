@@ -1,6 +1,7 @@
 # LANDAS — React + Vite + Tailwind
 
 **Live demo:** https://landing-page-woad-alpha.vercel.app/
+
 <img width="1471" height="782" alt="Screenshot 2025-08-20 at 7 44 10" src="https://github.com/user-attachments/assets/c89a8d13-9779-486c-87fa-47dee0673dac" />
 ## Added only one module playwright, for end to end test
 <img width="1064" height="721" alt="Screenshot 2025-08-20 at 7 35 03" src="https://github.com/user-attachments/assets/c9ce2288-3b3e-4ba2-afb2-e2cebc1a2dfd" />
