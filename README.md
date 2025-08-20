@@ -1,69 +1,85 @@
-# React + TypeScript + Vite
+# LANDAS — React + Vite + Tailwind
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**Live demo:** https://landing-page-woad-alpha.vercel.app/
 
-Currently, two official plugins are available:
+A responsive landing/e-commerce UI built with **React 19**, **Vite**, **Tailwind CSS v4**, **Zustand** (cart), and **Playwright** for E2E tests. It includes a swipeable hero, a product showcase with mobile peeks and desktop paging, reusable UI primitives, and a navbar with a live cart count.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## Expanding the ESLint configuration
+## ✨ Features
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- **UI/Styling**
+  - Tailwind CSS v4 with a design **theme** (CSS variables under `@theme { ... }`)
+  - Reusable **Button**, **Input** (sizes + password toggle), **Checkbox**, **Card**, **BadgePill**, **Price**
+- **Navigation**
+  - Responsive **Navbar** with cart count (from Zustand) + mobile drawer
+- **Showcase**
+  - Mobile: horizontal **swipe** with side **peeks** + active card emphasis  
+  - Desktop: **scrollable by pages**, dots map to pages (no peeks), manual scroll keeps dots in sync
+  - **DotsPager** bar component (shared with hero)
+- **Product Card**
+  - Image gallery with colored dots, title/subtitle, price row, optional badge
+  - **Click badge → add to cart** (Zustand)
+- **State**
+  - `useCart` store (persisted with localStorage) with `add/remove/setQty/clear`, `count/total` helpers
+- **Testing**
+  - **Playwright** tests for navbar & showcase; baseURL from env (fallback to localhost)
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+---
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+## 🧰 Tech stack
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+- **React** 19 • **Vite** 7 • **TypeScript** 5  
+- **Tailwind CSS** 4 • **tailwind-merge**  
+- **Zustand** 5  
+- **Playwright** 1.54 (E2E Tests)  
+- **ESLint** 9
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+---
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## 🚀 Quickstart (Yarn)
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+```bash
+# 1) Install deps
+yarn
+
+# 2) Start dev server (http://localhost:5173)
+yarn dev
+
+# 3) Type-check & build
+yarn build
+
+# 4) Preview production build
+yarn preview
+
+## End-to-end tests (Playwright)
+
+The config reads BASE_URL and falls back to http://localhost:5173.
+
+Run dev server in one terminal:
+
+yarn dev
+
+# Install browsers (first time / CI)
+yarn playwright install --with-deps
+
+# Headless run
+yarn test:e2e
+
+# Headed run
+yarn test:e2e:headed
+
+# Debug mode (inspector)
+yarn test:e2e:debug
+
+# UI mode
+yarn test:e2e:ui
+
+# Show last HTML report
+yarn test:e2e:report
+
+## No Test library was found, I installed playwright for tests
+
+
+
+
