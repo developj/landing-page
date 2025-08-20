@@ -5,6 +5,7 @@ import { UserIcon } from "../icons/UserIcon";
 import { SearchIcon } from "../icons/SearchIcon";
 import { CloseIcon } from "../icons/CloseIcon";
 import { MenuIcon } from "../icons/MenuIcon";
+import { useCart } from "../hooks/useCart";
 
 const LINKS = [
   { label: "SS", href: "#" },
@@ -19,12 +20,37 @@ const LINKS = [
 export default function Navbar() {
   const [open, setOpen] = React.useState(false);
 
+  // 🔢 total items in cart (sum of qty)
+  const itemCount = useCart((s) => s.items.reduce((n, it) => n + it.qty, 0));
+
   // Lock scroll when mobile menu is open
   React.useEffect(() => {
     const prev = document.body.style.overflow;
     document.body.style.overflow = open ? "hidden" : prev || "";
-    return () => { document.body.style.overflow = prev; };
+    return () => {
+      document.body.style.overflow = prev;
+    };
   }, [open]);
+
+  const cartButton = (
+    <a
+      href="/login"
+      aria-label="Cart"
+      className={classNameMerge(
+        "hover:text-[var(--brand)] inline-block align-middle",
+        itemCount > 0 && "text-[var(--brand)]"
+      )}
+    >
+      <span className="relative inline-block">
+        <CartIcon />
+        {itemCount > 0 && (
+          <span className="absolute top-0 left-4 translate-x-1/3 -translate-y-1/3 font-semibold text-sm leading-none pointer-events-none text-[var(--brand)]">
+            {itemCount}
+          </span>
+        )}
+      </span>
+    </a>
+  );
 
   return (
     <header className="sticky top-0 z-40 w-full bg-black text-white">
@@ -32,7 +58,10 @@ export default function Navbar() {
         {/* BAR */}
         <div className="flex h-14 items-center justify-between">
           {/* Left: Brand */}
-          <a href="/" className="text-2xl font-extrabold tracking-wide text-[var(--brand)] mr-3">
+          <a
+            href="/"
+            className="text-2xl font-extrabold tracking-wide text-[var(--brand)] mr-3"
+          >
             LANDAS
           </a>
 
@@ -54,23 +83,27 @@ export default function Navbar() {
           <div className="flex items-center gap-4">
             {/* Desktop icons */}
             <div className="hidden items-center gap-4 md:flex">
-              <a href="/login" aria-label="Cart" className="hover:text-[var(--brand)]">
-                <CartIcon />
-              </a>
-              <a href="/login" aria-label="Account" className="hover:text-[var(--brand)]">
+              {cartButton}
+
+              <a
+                href="/login"
+                aria-label="Account"
+                className="hover:text-[var(--brand)]"
+              >
                 <UserIcon />
               </a>
               <button aria-label="Search" className="hover:text-[var(--brand)]">
                 <SearchIcon />
               </button>
-              <a href="/login" className="text-sm">로그아웃</a>
+              <a href="/login" className="text-sm">
+                로그아웃
+              </a>
             </div>
 
             {/* Mobile icons */}
             <div className="flex items-center gap-4 md:hidden">
-              <a href="#" aria-label="Cart" className="hover:text-[var(--brand)]">
-                <CartIcon />
-              </a>
+              {cartButton}
+
               <button aria-label="Search" className="hover:text-[var(--brand)]">
                 <SearchIcon />
               </button>
@@ -112,11 +145,25 @@ export default function Navbar() {
 
             <div className="mt-2 flex items-center justify-between px-1 pb-4">
               <div className="flex items-center gap-4">
-                <a href="/login" className="hover:text-[var(--brand)]" aria-label="Cart"><CartIcon /></a>
-                <a href="/login" className="hover:text-[var(--brand)]" aria-label="Account"><UserIcon /></a>
-                <button className="hover:text-[var(--brand)]" aria-label="Search"><SearchIcon /></button>
+                {cartButton}
+
+                <a
+                  href="/login"
+                  className="hover:text-[var(--brand)]"
+                  aria-label="Account"
+                >
+                  <UserIcon />
+                </a>
+                <button
+                  className="hover:text-[var(--brand)]"
+                  aria-label="Search"
+                >
+                  <SearchIcon />
+                </button>
               </div>
-              <a href="/login" className="text-sm">로그아웃</a>
+              <a href="/login" className="text-sm">
+                로그아웃
+              </a>
             </div>
           </div>
         </div>

@@ -30,10 +30,9 @@
   --input-bg-error: #fdeeee;
 
   --panel-gradient: linear-gradient(180deg, #f4f4f6 0%, #eaeaea 100%);
-  /* Helpful: start/end + solid fallback (mean color) */
   --panel-gradient-start: #f4f4f6;
   --panel-gradient-end:   #eaeaea;
-  --panel-gradient-solid: #efeef0; /* average of the two */
+  --panel-gradient-solid: #efeef0;
   --panel-base: #ececec;
 }
 
