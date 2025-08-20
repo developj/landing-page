@@ -1,5 +1,6 @@
 import * as React from "react";
 import { YellowDot } from "../../atoms/showcase/YellowDot";
+import classNameMerge from "../../../../../shared/utils/classNameMerge";
 
 export interface DotsPagerProps {
   totalItems: number;
@@ -31,9 +32,10 @@ export const DotsPager: React.FC<DotsPagerProps> = ({
 
   return (
     <div className="flex justify-center mt-6">
-      {Array.from({ length: numDots }).map((_, i) => (
-        <YellowDot key={i} isActive={isActive(i)} onClick={() => onDotClick(getTargetIndex(i))} />
+      <div className="w-56 cursor-pointer text-center">{Array.from({ length: numDots }).map((_, i) => (
+        <YellowDot className={classNameMerge("m-0 h-[2px] md:w-24 rounded-none cursor-pointer", isActive(i) && "h-[5px] m-0")}  key={i} isActive={isActive(i)} onClick={() => onDotClick(getTargetIndex(i))} />
       ))}
+      </div>
     </div>
   );
 };

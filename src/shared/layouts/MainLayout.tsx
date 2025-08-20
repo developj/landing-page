@@ -17,14 +17,14 @@ const MainLayout = ({
       <Navbar />
       <div
         className={classNameMerge(
-          `font-pretendard flex h-fit w-full`,
+          `font-pretendard flex flex-col h-fit w-full`,
           className
         )}
       >
-       
+     
         {/* main content area */}
-        <div className="h-fit flex-1">
-          <div className="mt-[75px] flex w-full justify-center px-8 sm:px-12 md:px-8 lg:px-8 xl:px-8">
+        <div className="h-fit w-full">
+          <div className="mt-[40px] flex w-full justify-center sm:px-12 md:px-8 lg:px-8 xl:px-8">
             {children || <Outlet />}
           </div>
         </div>
