@@ -1,4 +1,3 @@
-// ShowcaseSection.tsx
 import { ProductShowcase } from "./ProductShowcase";
 import type { ShowcaseProduct } from "../../molecules/showcase/ShowcaseCard";
 

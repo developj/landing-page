@@ -6,9 +6,9 @@ export interface DotsPagerProps {
   totalItems: number;
   currentIndex: number;
   onDotClick: (targetIndex: number) => void;
-  /** Desktop mode groups by page; mobile shows one dot per item */
   isDesktopMode: boolean;
-  desktopItemsPerPage: number; // e.g. 4
+  desktopItemsPerPage: number;
+  className?: string;
 }
 
 export const DotsPager: React.FC<DotsPagerProps> = ({
@@ -17,6 +17,7 @@ export const DotsPager: React.FC<DotsPagerProps> = ({
   onDotClick,
   isDesktopMode,
   desktopItemsPerPage,
+  className,
 }) => {
   const numDots = isDesktopMode
     ? Math.ceil(totalItems / desktopItemsPerPage)
@@ -33,7 +34,7 @@ export const DotsPager: React.FC<DotsPagerProps> = ({
   return (
     <div className="flex justify-center mt-6">
       <div className="w-56 cursor-pointer text-center">{Array.from({ length: numDots }).map((_, i) => (
-        <YellowDot className={classNameMerge("m-0 h-[2px] md:w-24 rounded-none cursor-pointer", isActive(i) && "h-[5px] m-0")}  key={i} isActive={isActive(i)} onClick={() => onDotClick(getTargetIndex(i))} />
+        <YellowDot className={classNameMerge("m-0 h-[2px] md:w-24 rounded-none cursor-pointer", isActive(i) && "h-[5px] m-0",className)}  key={i} isActive={isActive(i)} onClick={() => onDotClick(getTargetIndex(i))} />
       ))}
       </div>
     </div>

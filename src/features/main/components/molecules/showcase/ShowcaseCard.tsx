@@ -62,7 +62,6 @@ export const ShowcaseCard: React.FC<ShowcaseCardProps> = ({
         />}
       </section>
 
-       
         {product.description && (
           <ShowcaseText
             text={product.description}

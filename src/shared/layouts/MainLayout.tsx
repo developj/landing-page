@@ -3,6 +3,7 @@ import classNameMerge from "../utils/classNameMerge";
 import type { ReactNode } from "react";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
+import HeroSection from "../../features/main/components/organisms/Hero/HeroSection";
 
 const MainLayout = ({
   className,
@@ -15,6 +16,7 @@ const MainLayout = ({
     <div className="w-full relative">
      {/* Navbar */}
       <Navbar />
+      <HeroSection />
       <div
         className={classNameMerge(
           `font-pretendard flex flex-col h-fit w-full`,

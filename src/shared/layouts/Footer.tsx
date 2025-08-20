@@ -1,6 +1,6 @@
-import { InstagramIcon } from "../../../public/assets/icons/icons/InstagramIcon";
-import { FacebookIcon } from "../../../public/assets/icons/icons/FacebookIcon";
-import { YouTubeIcon } from "../../../public/assets/icons/icons/YouTubeIcon";
+import { InstagramIcon } from "../icons/InstagramIcon";
+import { FacebookIcon } from "../icons/FacebookIcon";
+import { YouTubeIcon } from "../icons/YouTubeIcon";
 
 const companyInfo = [
   "대표이사 : 장창진",
@@ -20,7 +20,7 @@ const serviceInfo = [
 export default function Footer() {
   return (
     <footer className="w-full bg-[#161616] text-gray-300">
-      <div className="mx-auto max-w-7xl px-4 py-10 md:py-14">
+      <div className="mx-auto max-w-7xl px-6 py-10 md:py-14">
         {/* GRID: Left = brand + company, Middle = contact/AS, Right = policy + socials */}
         <div className="grid grid-cols-1 xs:gap-4 md:grid-cols-12">
           {/* Left */}

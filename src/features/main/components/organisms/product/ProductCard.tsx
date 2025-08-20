@@ -15,11 +15,9 @@ export interface ProductCardProps {
   colors?: ProductColor[];
   selectedColorIndex?: number;
   href?: string;
-
   imageIndex?: number;              // controlled
   defaultImageIndex?: number;       // uncontrolled
   onImageIndexChange?: (i: number) => void;
-
   onColorSelect?: (index: number) => void;
 }
 

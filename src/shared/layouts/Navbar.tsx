@@ -1,10 +1,10 @@
 import React from "react";
 import classNameMerge from "../utils/classNameMerge";
-import { CartIcon } from "../../../public/assets/icons/icons/CartIcon";
-import { UserIcon } from "../../../public/assets/icons/icons/UserIcon";
-import { SearchIcon } from "../../../public/assets/icons/icons/SearchIcon";
-import { CloseIcon } from "../../../public/assets/icons/icons/CloseIcon";
-import { MenuIcon } from "../../../public/assets/icons/icons/MenuIcon";
+import { CartIcon } from "../icons/CartIcon";
+import { UserIcon } from "../icons/UserIcon";
+import { SearchIcon } from "../icons/SearchIcon";
+import { CloseIcon } from "../icons/CloseIcon";
+import { MenuIcon } from "../icons/MenuIcon";
 
 const LINKS = [
   { label: "SS", href: "#" },
@@ -28,7 +28,7 @@ export default function Navbar() {
 
   return (
     <header className="sticky top-0 z-40 w-full bg-black text-white">
-      <nav className="mx-auto max-w-7xl px-4">
+      <nav className="mx-auto max-w-7xl px-6">
         {/* BAR */}
         <div className="flex h-14 items-center justify-between">
           {/* Left: Brand */}

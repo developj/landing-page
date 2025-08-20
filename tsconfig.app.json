@@ -23,5 +23,5 @@
     "noFallthroughCasesInSwitch": true,
     "noUncheckedSideEffectImports": true
   },
-  "include": ["src", "public/assets/icons/icons"]
+  "include": ["src", "src/shared/icons"]
 }
